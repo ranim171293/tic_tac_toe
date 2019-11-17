@@ -1,5 +1,6 @@
 export const INITIAL_STATE = {
-  withAI: true
+  winner: null, 
+  
 }
 
 

@@ -3,6 +3,7 @@ const ThirdPageStyle = styled.div`
   .gameArea{
     background: #fff;
     box-shadow: 0px 14px 64px 0px rgba(87,87,87,0.75);
+    padding: 10px;
   }
   .playersBoard{
     display:grid;
@@ -12,6 +13,12 @@ const ThirdPageStyle = styled.div`
   .score{
     border: 1px solid;
     border-radius: 20px;
+    font-weight: 500;
+  }
+  .winner {
+    padding: 50px 0;
+    font-size: 20px;
+    color: darkcyan;
     font-weight: 500;
   }
 `;

@@ -53,11 +53,7 @@ class ThirdPage extends React.Component {
       const [a, b, c ] = possiblites[i];
       console.log(a,b,c,blocks)
       if (blocks[a] && blocks[a] === blocks[b] && blocks[a] === blocks[c]) {
-        const winner = blocks[a];
-        this.setState((prevState) => ({
-          X : prevState[winner]++
-        }))
-        return winner;
+        return blocks[a];
       }
     }
     return null;
@@ -95,10 +91,8 @@ class ThirdPage extends React.Component {
           <div className="score"><span>{X}</span><span>-</span><span>{O}</span></div>
           <div>O</div>
         </div>
-        Winner is {winner}
-        <button value="reset"/>
-        <button value="nextGame"/>
         {this.renderGameBoard()}
+        <div className="winner">Winner is {winner}</div>
       </ThirdPageStyle>
     )
   }
