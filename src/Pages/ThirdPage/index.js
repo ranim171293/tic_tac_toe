@@ -1,8 +1,8 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import Blocks from '../../Components/Blocks';
 
 import ThirdPageStyle from './style';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 class ThirdPage extends React.Component {
   constructor(props) {

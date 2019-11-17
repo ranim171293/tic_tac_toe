@@ -1,7 +1,6 @@
 import {
   createStore,
-  applyMiddleware,
-  compose
+  applyMiddleware
 } from 'redux';
 import createReducer from './Reducers/index'
 import logger from 'redux-logger';
