@@ -7,7 +7,6 @@ import FirstPageStyle from './style';
 class FirstPage extends React.Component {
 
   playType() {
-    console.log('hjgdfgh')
     window.location.pathname = '/selectPlayer';
   }
   render () {

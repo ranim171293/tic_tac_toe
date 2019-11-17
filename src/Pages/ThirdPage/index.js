@@ -1,7 +1,9 @@
 import React from 'react';
 import Blocks from '../../Components/Blocks';
-
+import Noughts from '../../Components/Noughts';
+import Crosses from '../../Components/Crosses';
 import ThirdPageStyle from './style';
+import Button from '../../Components/Button';
 // import { connect } from 'react-redux';
 
 class ThirdPage extends React.Component {
@@ -28,7 +30,6 @@ class ThirdPage extends React.Component {
   handleClick(i){
     const { blocks } = this.state;
     if(this.findWinner(blocks) || blocks[i]) {
-      console.log(blocks[i])
       return
     };
     blocks[i] = this.state.isNext ? 'X' : 'O';
@@ -36,6 +37,18 @@ class ThirdPage extends React.Component {
       blocks,
       isNext: !this.state.isNext
     });
+  }
+
+  RestartGame() {
+    
+    this.setState({
+      blocks: Array(9).fill(null),
+      isNext: !this.state.isNext
+    })
+  }
+
+  backToHome() {
+    window.location.pathname = '/';
   }
 
   findWinner(blocks) {
@@ -51,7 +64,6 @@ class ThirdPage extends React.Component {
     ];
     for (let i = 0; i < possiblites.length; i++) {
       const [a, b, c ] = possiblites[i];
-      console.log(a,b,c,blocks)
       if (blocks[a] && blocks[a] === blocks[b] && blocks[a] === blocks[c]) {
         return blocks[a];
       }
@@ -82,17 +94,16 @@ class ThirdPage extends React.Component {
   }
   
   render () {
-    const { blocks, X, O } = this.state;
-    const winner = this.findWinner(blocks);
+    const { blocks } = this.state;
+    let winner = this.findWinner(blocks);
+
     return (
       <ThirdPageStyle>
-        <div className="playersBoard">
-          <div>X</div>
-          <div className="score"><span>{X}</span><span>-</span><span>{O}</span></div>
-          <div>O</div>
-        </div>
-        {this.renderGameBoard()}
-        <div className="winner">Winner is {winner}</div>
+      {winner ? <div>
+        <div className="winner">Winner is { winner === 'X' ? <Crosses/> : <Noughts/>} </div>
+        <Button type="primary" text="Restart Game" clickPlayMode={() => this.RestartGame()} />
+        <Button type="Secondary" text="Back to Home" clickPlayMode={() => this.backToHome()} />
+        </div> : this.renderGameBoard()}
       </ThirdPageStyle>
     )
   }

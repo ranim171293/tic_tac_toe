@@ -20,6 +20,11 @@ const ThirdPageStyle = styled.div`
     font-size: 20px;
     color: darkcyan;
     font-weight: 500;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    line-height: 45px;
   }
 `;
 

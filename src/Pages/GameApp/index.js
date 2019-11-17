@@ -11,7 +11,6 @@ import {connect} from 'react-redux'
 
 class GameApp extends React.Component {
   render () {
-    console.log('testing the props', this.props)
     return (
       <Fragment>
       <h1 className="gameTitle">TIC TAC TOE</h1>
